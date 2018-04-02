@@ -8,7 +8,7 @@ class MainController extends UserLogin
     public $login_required = false;
     public $logged_in = false;
     public $permission_required = 'any';
-    public $parametros = array();
+    public $parameters = array();
 
     public function __construct ( $parameters = array() ) {
         $this->db = new DB();
@@ -47,6 +47,7 @@ class MainController extends UserLogin
     protected function throw_404() {
         $this->load_view('_includes/404.php');
     }
+    
     protected function ensure_is_logged() {
         if (!$this->logged_in) {
             $this->goto_login();

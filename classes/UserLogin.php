@@ -4,7 +4,9 @@ class UserLogin
     public $logged_in;
     public $userdata;
     public $login_error;
+    
     public function check_user_login() {
+
         if (isset($_SESSION['userdata']) && !empty($_SESSION['userdata']) && is_array($_SESSION['userdata']) && !isset($_POST['userdata'])) { 
             $userdata = $_SESSION['userdata'];
             $userdata['post'] = false;

@@ -18,4 +18,6 @@ class BaseModel
         $db = new DB();
         return $db->query('SELECT * FROM ' . static::$table . ' WHERE ' . static::$primaryKey . ' = ' . $id)->fetchAll();
     }
+
+    
 }

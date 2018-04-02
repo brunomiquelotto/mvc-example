@@ -16,10 +16,10 @@
         <a href="<?=HOME_URI?>/home">Safe This</a>
     </h3>
     <div>
-        <?php if ($this->logged_in) {?>
+        <?php if($this->logged_in):?>
         <h4>
             <a href="<?=HOME_URI?>/login/exit">Sair</a>
         </h4>
-        <?php }?>
+        <?php endif;?>
     </div>
 </header>
