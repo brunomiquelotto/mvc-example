@@ -47,4 +47,9 @@ class MainController extends UserLogin
     protected function throw_404() {
         $this->load_view('_includes/404.php');
     }
+    protected function ensure_is_logged() {
+        if (!$this->logged_in) {
+            $this->goto_login();
+        }
+    }
 } 

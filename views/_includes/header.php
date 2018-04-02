@@ -11,8 +11,15 @@
 </head>
 <body>
 
-<header>
-    <h1>
+<header class="header">
+    <h3>
         <a href="<?=HOME_URI?>/home">Safe This</a>
-    </h1>
+    </h3>
+    <div>
+        <?php if ($this->logged_in) {?>
+        <h4>
+            <a href="<?=HOME_URI?>/login/exit">Sair</a>
+        </h4>
+        <?php }?>
+    </div>
 </header>

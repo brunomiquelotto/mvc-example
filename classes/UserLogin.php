@@ -5,7 +5,6 @@ class UserLogin
     public $userdata;
     public $login_error;
     public function check_user_login() {
-
         if (isset($_SESSION['userdata']) && !empty($_SESSION['userdata']) && is_array($_SESSION['userdata']) && !isset($_POST['userdata'])) { 
             $userdata = $_SESSION['userdata'];
             $userdata['post'] = false;
@@ -54,14 +53,14 @@ class UserLogin
         $user_id = (int) $fetch['user_id'];
         if (empty($user_id)){
             $this->logged_in = false;
-            $this->login_error = 'User do not exists.';
+            $this->login_error = 'Usuário não encontrado';
             $this->logout();
             return;
         }
         if ($this->phpass->CheckPassword($user_password, $fetch['user_password'])) {
             if (session_id() != $fetch['user_session_id'] && ! $post) { 
                 $this->logged_in = false;
-                $this->login_error = 'Wrong session ID.';
+                $this->login_error = 'Problema com a sessão do usuário';
                 $this->logout();
                 return;
             }
@@ -85,7 +84,7 @@ class UserLogin
             return;
         } else {
             $this->logged_in = false;
-            $this->login_error = 'Password does not match.';
+            $this->login_error = 'Senha incorreta.';
             $this->logout();
             return;
         }

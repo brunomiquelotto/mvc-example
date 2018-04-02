@@ -1,13 +1,15 @@
 <?php
 
 class UserModel extends BaseModel {
+    protected static $table = "Users";
+    protected static $primaryKey = "User_Id";
+
     function __construct() {
-        $this->table = "Users";
-        $this->primaryKey = "UserId";
+
     }
+    
     function __destruct() {
-        $this->table = null;
-        $this->primaryKey = null;
+
     }
 }
 

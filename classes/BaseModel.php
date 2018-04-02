@@ -8,16 +8,14 @@ class BaseModel
     public $controller;
     public $parameters;
     public $userdata;
-    protected $table;
     
     public static function all() {
         $db = new DB();
-        //return $db->select('SELECT * FROM $this->table');
+        return $db->query('SELECT * FROM ' . static::table)->fetchAll();
     }
 
     public static function find($id) {
-        //$db = new DB();
-        //return $db->select('SELECT * FROM $this->table WHERE $this->primaryKey = $id');
-        return array('batata' => 'cenoura');
+        $db = new DB();
+        return $db->query('SELECT * FROM ' . static::$table . ' WHERE ' . static::$primaryKey . ' = ' . $id)->fetchAll();
     }
 }

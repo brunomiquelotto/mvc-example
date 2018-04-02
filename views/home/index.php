@@ -1,2 +1,1 @@
-<h1>Index</h1>
-<?=print_r($this->model)?>
+<h1>Bem vindo ao Safe This</h1>
