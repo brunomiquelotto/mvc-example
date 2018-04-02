@@ -14,4 +14,4 @@ if (!defined('DEBUG') || DEBUG === false ) {
  
 require_once ABSPATH . '/functions/global.php';
  
-$app = new App();
+$app = App::get_instance();

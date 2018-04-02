@@ -4,8 +4,16 @@
         private $action;
         private $parameters;
         private $not_found_page = '/views/_includes/404.php';
+        private static $instance = null;
 
-        public function __construct() {
+        public static function get_instance() {
+            if (self::$instance == null) {
+                self::$instance = new App();
+            }
+            return self::$instance;
+        }
+
+        private function __construct() {
             $this->get_url_data();
             
             if (!$this->controller) {
