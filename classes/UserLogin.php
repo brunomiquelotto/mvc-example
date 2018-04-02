@@ -4,7 +4,7 @@ class UserLogin
     public $logged_in;
     public $userdata;
     public $login_error;
-    public function check_userlogin () {
+    public function check_user_login() {
 
         if (isset($_SESSION['userdata']) && !empty($_SESSION['userdata']) && is_array($_SESSION['userdata']) && !isset($_POST['userdata'])) { 
             $userdata = $_SESSION['userdata'];
@@ -20,18 +20,22 @@ class UserLogin
             $this->logout();
             return;
         }
+
         if ($userdata['post'] === true) {
             $post = true;
         } else {
             $post = false;
         }
+
         unset($userdata['post']);
+
         if (empty($userdata)) {
             $this->logged_in = false;
             $this->login_error = null;
             $this->logout();
             return;
         }
+
         extract($userdata);
         if (! isset($user) || ! isset($user_password)) {
             $this->logged_in = false;

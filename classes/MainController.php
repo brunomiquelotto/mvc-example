@@ -1,17 +1,20 @@
 <?php
 
-class MainController
+class MainController extends UserLogin
 {
     public $db;
     public $phpass;
     public $title;
     public $login_required = false;
+    public $logged_in = false;
     public $permission_required = 'any';
     public $parametros = array();
 
     public function __construct ( $parameters = array() ) {
+        $this->db = new DB();
         $this->parameters = $parameters;
-        //$this->phpass = new PasswordHash(8, false);
+        $this->phpass = new PasswordHash(8, false);
+        $this->check_user_login();
     }
  
     public function load_model($model_name = false) {
