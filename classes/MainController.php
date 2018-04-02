@@ -14,7 +14,7 @@ class MainController
         //$this->phpass = new PasswordHash(8, false);
     }
  
-    public function load_model( $model_name = false ) {
+    public function load_model($model_name = false) {
         if (!$model_name) return;
         $model_name =  strtolower($model_name);
         $model_path = ABSPATH . '/models/' . $model_name . '.php';
@@ -28,5 +28,20 @@ class MainController
             }
             return;
         }
-    } 
+    }
+
+    protected function load_view($view_name) {
+        require ABSPATH . '/views/' . $view_name;
+    }
+
+    protected function load_page($page_name) {
+        $this->load_view('_includes/header.php');
+        $this->load_view('_includes/menu.php');
+        $this->load_view($page_name);
+        $this->load_view('_includes/footer.php');
+    }
+
+    protected function throw_404() {
+        $this->load_view('_includes/404.php');
+    }
 } 
