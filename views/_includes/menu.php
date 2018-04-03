@@ -1,6 +1,6 @@
 <?php if (!defined('ABSPATH')) exit; ?>
 <!-- Menu para usuários logados -->
-<?php if ($this->logged_in) { ?>
+<?php if ($this->logged_in): ?>
 <aside class="sidebar">
     <ul>
         <li>
@@ -12,4 +12,4 @@
     </ul>
 </aside>
 <section class="main-content">
-<?php } ?>
+<?php endif; ?>
